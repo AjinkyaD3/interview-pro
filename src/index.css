@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background: #FAF9F6 (Off-white) -> HSL(40, 10%, 97%) approx, let's go with 60 5% 96% or similar */
+    --background: 40 20% 97%;
+
+    /* Foreground: #111111 (Primary Text) -> HSL(0, 0%, 7%) */
+    --foreground: 0 0% 7%;
+
+    /* Card: #FFFFFF (White) */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 7%;
+
+    /* Popover: #FFFFFF */
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 7%;
+
+    /* Primary: #111111 (Black buttons) */
+    --primary: 0 0% 7%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: #2F2F2F (Dark Gray) */
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Muted: #F5F5F5 or light gray for backgrounds */
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+
+    /* Accent: #FAF9F6 (using background color) or light highlights? 
+       Shadcn 'accent' is usually hover state for ghost buttons. 
+       Let's use a light gray for hover states. */
+    --accent: 0 0% 92%;
+    --accent-foreground: 0 0% 7%;
+
+    /* Destructive */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+
+    /* Border: #E5E5E5 -> HSL(0, 0%, 90%) */
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+
+    /* Ring: #D97706 (Amber) -> HSL(32, 95%, 44%) */
+    --ring: 32 95% 44%;
+
+    --radius: 0.75rem;
+
+    /* Chart/Custom colors */
+    --chart-1: 32 95% 44%;
+    /* Amber as main chart color */
+    --chart-2: 0 0% 18%;
+    --chart-3: 0 0% 40%;
+    --chart-4: 40 20% 97%;
+    --chart-5: 0 0% 7%;
+
+    /* Custom Variable for specific text usage */
+    --brand-accent: 32 95% 44%;
+  }
+
+  .dark {
+    /* Creating a dark mode inverse just in case, though user didn't specify */
+    --background: 0 0% 7%;
+    /* #111111 */
+    --foreground: 40 20% 97%;
+    /* Off white text */
+
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 0 0% 98%;
+    /* White buttons */
+    --primary-foreground: 0 0% 7%;
+
+    --secondary: 0 0% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 0 0% 18%;
+    --muted-foreground: 0 0% 60%;
+
+    --accent: 0 0% 18%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 32 95% 44%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Plus Jakarta Sans", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Urbanist", sans-serif;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[hsl(var(--primary))] to-[hsl(var(--brand-accent))];
+  }
+
+  .text-icon-active {
+    @apply text-[hsl(var(--brand-accent))];
+  }
+}
